@@ -1,6 +1,6 @@
 # Wahy
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/wahy`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to my Wahy gem repo! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/wahy`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
 
@@ -22,7 +22,22 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```shell
+There is the argument's options:
+# -l => to pick language ('eng'|'tur') # Default: tur (Turkish)
+# -s => to pick scripture (also can use scripture's number) # between 1-114 # Default: 1
+# -a => to pick sign number (also can use all) # Default: all
+
+# User can call only wahy command then will see all sings of first scripture in Turkish.
+
+# The Cow Scripture and its all signs
+wahy -l 'eng' -s 'The Cow' # alias to: wahy -l 'eng' -s 'The Cow' -a 'all'
+wahy -l 'tur' -s 'The Cow' # alias to: wahy -l 'eng' -s 'The Cow' -a 'all'
+
+# The Cow Scripture and its 2nd sign
+wahy -l 'eng' -s 'The Cow' -a 2
+wahy -l 'tur' -s 'The Cow' -a 2
+```
 
 ## Development
 
