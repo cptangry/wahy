@@ -23,6 +23,9 @@ Or install it yourself as:
 ## Usage
 
 ```shell
+# export to path:
+# path/to/.gems/wahy-1.1.0/lib
+
 There is the argument's options:
 # -l => to pick language ('eng'|'tur') # Default: tur (Turkish)
 # -s => to pick scripture (also can use scripture's number) # between 1-114 # Default: 1
