@@ -73,4 +73,3 @@ module Wahy
    end
   end
 end
-Wahy.show_wahy
