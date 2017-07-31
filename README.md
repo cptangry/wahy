@@ -37,12 +37,19 @@ There is the argument's options:
 # User can call only wahy command then will see all sings of first scripture in Turkish.
 
 # The Cow Scripture and its all signs
-wahy -l 'eng' -s 'The Cow' # alias to: wahy -l 'eng' -s 'The Cow' -a 'all'
-wahy -l 'tur' -s 'The Cow' # alias to: wahy -l 'eng' -s 'The Cow' -a 'all'
+read_wahy -l 'eng' -s 'The Cow' # alias to: wahy -l 'eng' -s 'The Cow' -a 'all'
+read_wahy -l 'tur' -s 'The Cow' # alias to: wahy -l 'eng' -s 'The Cow' -a 'all'
 
 # The Cow Scripture and its 2nd sign
-wahy -l 'eng' -s 'The Cow' -a 2
-wahy -l 'tur' -s 'The Cow' -a 2
+read_wahy -l 'eng' -s 'The Cow' -a 2
+read_wahy -l 'tur' -s 'The Cow' -a 2
+
+# Gem includes two XML files 
+# English Quran Tranlation(eng.xml): Written by Yusuf Ali
+# Turkish Quran Tranlation(tur.xml): Written by Elmalılı Hamdi Yazır
+# Special Thanks to: http://www.qurandatabase.org/Database.aspx
+
+# Also in same directory : wahy.rb is a executable file
 ```
 
 ## Development
