@@ -25,7 +25,7 @@ Or install it yourself as:
 ```shell
 # export to path:
 # EXAMPLE
-# export PATH=$PATH:$GEM_HOME/gems/wahy-1.1.7/lib
+# export PATH=$PATH:$GEM_HOME/gems/wahy-1.1.8/lib
 
 
 There is the argument's options:

@@ -54,7 +54,7 @@ module Wahy
   SCRIPTURE = OPTIONS[:scripture] || 0
   SIGN      = OPTIONS[:sign] || 'all'
 
-  Doc = Nokogiri::XML(File.open("#{ENV["GEM_PATH"]}/gems/wahy-1.1.5/lib/data/#{LANG}.xml")) do |config|
+  Doc = Nokogiri::XML(File.open("#{ENV["GEM_PATH"]}/gems/wahy-1.1.8/lib/data/#{LANG}.xml")) do |config|
     config.strict.noblanks
   end
 
