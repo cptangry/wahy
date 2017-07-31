@@ -26,7 +26,7 @@ Or install it yourself as:
 # export to path:
 # path/to/.gems/wahy-1.1.4/lib
 # EXAMPLE
-# export WAHYPATH=$HOME/.rvm/gems/ruby-2.4.1@global/gems/wahy-1.1.4/lib
+# export PATH=$PATH:$GEM_HOME/gems/wahy-1.1.5/lib
 
 
 There is the argument's options:
