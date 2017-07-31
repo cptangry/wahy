@@ -25,6 +25,9 @@ Or install it yourself as:
 ```shell
 # export to path:
 # path/to/.gems/wahy-1.1.0/lib
+# EXAMPLE
+# export WAHYPATH=$HOME/.rvm/gems/ruby-2.4.1@global/gems/wahy-1.1.2/bin
+
 
 There is the argument's options:
 # -l => to pick language ('eng'|'tur') # Default: tur (Turkish)
