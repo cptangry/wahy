@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require "../lib/wahy.rb"
+
+
+
+Wahy.show_wahy

@@ -53,7 +53,7 @@ module Wahy
   SCRIPTURE = OPTIONS[:scripture] || 0
   SIGN      = OPTIONS[:sign] || 'all'
 
-  Doc = Nokogiri::XML(File.open("./wahy/data/#{LANG}.xml")) do |config|
+  Doc = Nokogiri::XML(File.open("../lib/data/#{LANG}.xml")) do |config|
     config.strict.noblanks
   end
 
@@ -72,7 +72,3 @@ module Wahy
    end
   end
 end
-
-
-
-Wahy.show_wahy
