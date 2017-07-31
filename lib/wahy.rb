@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # coding: utf-8
 require_relative "wahy/version"
 require 'nokogiri'
@@ -53,7 +54,7 @@ module Wahy
   SCRIPTURE = OPTIONS[:scripture] || 0
   SIGN      = OPTIONS[:sign] || 'all'
 
-  Doc = Nokogiri::XML(File.open("../lib/data/#{LANG}.xml")) do |config|
+  Doc = Nokogiri::XML(File.open("./data/#{LANG}.xml")) do |config|
     config.strict.noblanks
   end
 
@@ -72,3 +73,4 @@ module Wahy
    end
   end
 end
+Wahy.show_wahy
