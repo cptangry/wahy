@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Gökhan Çağlar"]
   spec.email         = ["caglar.gokhan@gmail.com"]
 
-  spec.summary       = %q{You can read Quran's scriptures or signs from terminal. Version 1.1.6 Everything is working!}
+  spec.summary       = %q{You can read Quran's scriptures or signs from terminal. Version 1.1.7 Everything is working!}
   spec.description   = %q{This gem show user Quran's scriptures and signs in English and also in Turkish with sign number and colored}
   spec.homepage      = "https://github.com/cptangry/wahy"
   spec.license       = "MIT"
