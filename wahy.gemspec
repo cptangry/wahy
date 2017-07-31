@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{This gem show user Quran's scriptures and signs in English and also in Turkish with sign number and colored}
   spec.homepage      = "https://github.com/cptangry/wahy"
   spec.license       = "MIT"
-  spec.executables   << "wahy"
+  spec.executables   << "read_wahy"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
