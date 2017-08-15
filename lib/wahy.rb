@@ -12977,7 +12977,7 @@ module Wahy
         o.banner = "Usage: wahy [options]"
         
         o.on("-lLANG", "--lang=LANGUAGE", "Which language that you want to read signs?") do |l|
-          options[:lang] = l
+          options[:lang] = l || 'tur'
         end
         
         o.on("-sSCRIPTURE", "--scripture=SCRIPTURE", "Scripture name or number") do |s|
