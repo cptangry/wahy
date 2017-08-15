@@ -25,9 +25,9 @@ Or install it yourself as:
 ```shell
 # export to path:
 # EXAMPLE
-# export PATH=$PATH:$GEM_HOME/gems/wahy-1.2.0/lib
-# export PATH=$PATH:$GEM_HOME/gems/wahy-1.2.0/bin
-# export PATH=$PATH:$GEM_HOME/gems/wahy-1.2.0/exe
+# export PATH=$PATH:$GEM_HOME/gems/wahy-1.2.1/lib
+# export PATH=$PATH:$GEM_HOME/gems/wahy-1.2.1/bin
+# export PATH=$PATH:$GEM_HOME/gems/wahy-1.2.1/exe
 
 
 There is the argument's options:
