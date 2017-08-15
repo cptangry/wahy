@@ -25,7 +25,9 @@ Or install it yourself as:
 ```shell
 # export to path:
 # EXAMPLE
-# export PATH=$PATH:$GEM_HOME/gems/wahy-1.1.8/lib
+# export PATH=$PATH:$GEM_HOME/gems/wahy-1.1.9/lib
+# export PATH=$PATH:$GEM_HOME/gems/wahy-1.1.9/bin
+# export PATH=$PATH:$GEM_HOME/gems/wahy-1.1.9/exe
 
 
 There is the argument's options:
@@ -36,12 +38,12 @@ There is the argument's options:
 # User can call only wahy command then will see all sings of first scripture in Turkish.
 
 # The Cow Scripture and its all signs
-read_wahy -l 'eng' -s 'The Cow' # alias to: wahy -l 'eng' -s 'The Cow' -a 'all'
-read_wahy -l 'tur' -s 'The Cow' # alias to: wahy -l 'eng' -s 'The Cow' -a 'all'
+wahy -l 'eng' -s 'The Cow' # alias to: wahy -l 'eng' -s 'The Cow' -a 'all'
+wahy -l 'tur' -s 'The Cow' # alias to: wahy -l 'eng' -s 'The Cow' -a 'all'
 
 # The Cow Scripture and its 2nd sign
-read_wahy -l 'eng' -s 'The Cow' -a 2
-read_wahy -l 'tur' -s 'The Cow' -a 2
+wahy -l 'eng' -s 'The Cow' -a 2
+wahy -l 'tur' -s 'The Cow' -a 2
 
 # Gem includes two XML files 
 # English Quran Tranlation(eng.xml): Written by Yusuf Ali
