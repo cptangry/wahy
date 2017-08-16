@@ -53,7 +53,7 @@ data = Wahy.new_data 'tur' # or data = Wahy.new_data 'eng'
 quran = Wahy.chapters_data data
 the_opening = Wahy.scripture_data quran, 'the opening' # a nokogiri object
 signs = Wahy.sign_data the_opening # an array
-sign_one = signs[0] # or sign_one = signs.firsr # it's array
+sign_one = signs[0] # or sign_one = signs.first # it's array
 # OR
 sing_two = Wahy.take_specific_sign signs, 1
 
