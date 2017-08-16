@@ -13088,4 +13088,8 @@ module Wahy
 	sign = sign_data[sign_number]
 	sign
   end
+
+  def self.specific_sign_object scripture_data, sign_number
+	sign = scripture_data.css('Verse')[sign_number]
+  end
 end
