@@ -23,12 +23,9 @@ Or install it yourself as:
 ## Usage
 
 ```shell
-# export to path:
-# EXAMPLE
-# export PATH=$PATH:$GEM_HOME/gems/wahy-1.2.1/lib
-# export PATH=$PATH:$GEM_HOME/gems/wahy-1.2.1/bin
-# export PATH=$PATH:$GEM_HOME/gems/wahy-1.2.1/exe
-
+Just install gem and use wahy command
+# For help:
+wahy -h
 
 There is the argument's options:
 # -l => to pick language ('eng'|'tur') # Default: tur (Turkish)

@@ -12977,16 +12977,15 @@ module Wahy
         o.banner = "Usage: wahy [options]"
         
         o.on("-lLANG", "--lang=LANGUAGE", "Which language that you want to read signs?") do |l|
-          options[:lang] = l || 'tur'
+          options[:lang] = l
         end
         
         o.on("-sSCRIPTURE", "--scripture=SCRIPTURE", "Scripture name or number") do |s|
           if s =~ /[[:digit:]]/
             options[:scripture] = s.to_i - 1
           else
-            options[:scripture] = SURELER[options[:lang].to_sym].index(s.split(" ").map {|i| i = i.capitalize}.join(" "))
+            options[:scripture] = (SURELER[(options[:lang] || 'tur').to_sym.index(s.split(" ").map {|i| i = i.capitalize}.join(" "))
           end
-          
         end
         
         o.on("-asign", "--ayah=SIGN", "Sign number") do |a|
