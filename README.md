@@ -29,7 +29,7 @@ wahy -h
 
 There is the argument's options:
 # If you want to see English results you don't need to call -l argument (English is default)
-# -l => to pick language ('eng'|'tur') # Default: tur (English)
+# -l => to pick language ('eng'|'tur') # Default: (English)
 # -s => to pick scripture (also can use scripture's number) # between 1-114 # Default: 1
 # -a => to pick sign number (also can use all) # Default: all
 
