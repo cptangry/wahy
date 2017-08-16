@@ -49,7 +49,7 @@ wahy -l 'tur' -s 'The Cow' -a 2
 # Special Thanks to: http://www.qurandatabase.org/Database.aspx
 
 # There is a little terminal trick to save output to a file:
-wahy -l 'eng' -s 'The Cow' # alias to: wahy -l 'eng' -s 'The Cow' -a 'all' > fileName.txt # :)
+wahy -l 'eng' -s 'The Cow' > fileName.txt # :)
 
 # Also in lib directory : wahy.rb is a executable file
 ```
