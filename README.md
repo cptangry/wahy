@@ -23,11 +23,12 @@ Or install it yourself as:
 ## Usage
 
 ```shell
-Just install gem and use wahy command
+# Just install gem and use wahy command
 # For help:
 wahy -h
 
 There is the argument's options:
+# If you want to see English results you don't need to call -l argument (English is default)
 # -l => to pick language ('eng'|'tur') # Default: tur (English)
 # -s => to pick scripture (also can use scripture's number) # between 1-114 # Default: 1
 # -a => to pick sign number (also can use all) # Default: all
@@ -47,7 +48,10 @@ wahy -l 'tur' -s 'The Cow' -a 2
 # Turkish Quran Tranlation(tur.xml): Written by Elmalılı Hamdi Yazır
 # Special Thanks to: http://www.qurandatabase.org/Database.aspx
 
-# Also in same directory : wahy.rb is a executable file
+# There is a little terminal trick to save output to a file:
+wahy -l 'eng' -s 'The Cow' # alias to: wahy -l 'eng' -s 'The Cow' -a 'all' > fileName.txt # :)
+
+# Also in lib directory : wahy.rb is a executable file
 ```
 
 ## Development
