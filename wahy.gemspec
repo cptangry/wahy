@@ -9,8 +9,12 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Gökhan Çağlar"]
   spec.email         = ["caglar.gokhan@gmail.com"]
 
-  spec.summary       = %q{You can read Quran's scriptures or signs from terminal. Version 1.1.8 Everything is working! REALLY! STABLE. Executable path issues fixed. It can run as a terminal command. Default Lang is English now.}
-  spec.description   = %q{This gem show user Quran's scriptures and signs in English and also in Turkish with sign number and colored. Executable path issues fixed. It can run as a terminal command. Default Lang is English now.}
+  spec.summary       = %q{You can read Quran's scriptures or signs from terminal. Version 1.1.8 Everything is working! REALLY! STABLE.
+                        Executable path issues fixed. It can run as a terminal command. Default Lang is English now. Also you can require
+                        it and take Quran data with helpfull and easy to use methods.}
+  spec.description   = %q{You can read Quran's scriptures or signs from terminal. Version 1.1.8 Everything is working! REALLY! STABLE.
+                        Executable path issues fixed. It can run as a terminal command. Default Lang is English now. Also you can require
+                        it and take Quran data with helpfull and easy to use methods.}
   spec.homepage      = "https://github.com/cptangry/wahy"
   spec.license       = "MIT"
   spec.executables   << "wahy"

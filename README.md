@@ -41,15 +41,27 @@ wahy -l 'tur' -s 'The Cow' # alias to: wahy -l 'eng' -s 'The Cow' -a 'all'
 wahy -l 'eng' -s 'The Cow' -a 2
 wahy -l 'tur' -s 'The Cow' -a 2
 
-# Gem includes two XML files 
-# English Quran Tranlation(eng.xml): Written by Yusuf Ali
-# Turkish Quran Tranlation(tur.xml): Written by Elmalılı Hamdi Yazır
-# Special Thanks to: http://www.qurandatabase.org/Database.aspx
-
 # There is a little terminal trick to save output to a file:
 wahy -l 'eng' -s 'The Cow' > fileName.txt # :)
 
 # Also in lib directory : wahy.rb is a executable file
+
+# Also you can use that gem as source of your own project
+require 'wahy'
+
+data = Wahy.new_data 'tur' # or data = Wahy.new_data 'eng'
+quran = Wahy.chapters_data data
+the_opening = Wahy.scripture_data quran, 'the opening' # a nokogiri object
+signs = Wahy.sign_data the_opening # an array
+sign_one = signs[0] # or sign_one = signs.firsr # it's array
+# OR
+sing_two = Wahy.take_specific_sign signs, 1
+
+
+# Gem includes two XML data
+# English Quran Tranlation(eng.xml): Written by Yusuf Ali
+# Turkish Quran Tranlation(tur.xml): Written by Elmalılı Hamdi Yazır
+# Special Thanks to: http://www.qurandatabase.org/Database.aspx
 ```
 
 ## Development
