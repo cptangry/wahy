@@ -12971,6 +12971,12 @@ module Wahy
   </HolyQuran>'
 
   module Opt_PARSER
+     SURELER = {
+      :tur => ["Fatiha", "Bakara", "Ali İmran", "Nisa", "Maide", "Enam", "Araf", "Enfal", "Tevbe", "Yunus", "Hud", "Yusuf", "Rad", "İbrahim", "Hicr", "Nahl", "Isra", "Kehf", "Meryem", "Taha", "Enbiya", "Hac", "Muminun", "Nur", "Furkan", "Suara", "Neml", "Kasas", "Ankebut", "Rum", "Lukman", "Secde", "Ahzab", "Sebe", "Fatir", "Yasin", "Saffat", "Sad", "Zümer", "Mumin", "Fussilet", "Sura", "Zuhruf", "Duhan", "Casiye", "Ahkaf", "Muhammed", "Fetih", "Hucurat", "Kaf", "Zariyat", "Tur", "Necm", "Kamer", "Rahman", "Vakia", "Hadid", "Mücadele", "Hasr", "Mümtahine", "Saf", "Cuma", "Münafikun", "Tegabun", "Talak", "Tahrim", "Mülk", "Kalem", "Hakka", "Mearic", "Nuh", "Cin", "Müzzemmil", "Müddessir", "Kıyamet", "İnsan", "Murselat", "Nebe", "Naziat", "Abese", "Tekvir", "İnfitar", "Mutaffifin", "İnsikak", "Buruc", "Tarik", "Ala", "Gasiye", "Fecr", "Beled", "Şems", "Leyl", "Duha", "İnşirah", "Tin", "Alak", "Kadir", "Beyyine", "Zilzal", "Adiyat", "Karia", "Tekasür", "Asr", "Hümeze", "Fil", "Kureyş", "Maun", "Kevser", "Kafirun", "Nasr", "Leheb", "İhlas", "Felak", "Nas"],
+      :eng => ["The Opening", "The Cow", "The Family Of Imran", "Women", "The Food", "The Cattle", "The Elevated Place", "The Spoils Of War", "Repentance", "Yunus", "Hud", "Yusuf", "The Thunder", "Ibrahim", "The Rock", "The Bee", "The Israelites", "The Cave", "Marium", "Ta Ha", "The Prophets", "The Pilgrimage", "The Believers", "The Light", "The Criterion", "The Poets", "The Ant", "The Narrative", "The Spider", "The Romans", "Luqman", "The Adoration", "The Allies", "Saba", "The Originator", "Ya Seen", "The Rangers", "Suad", "The Companies", "The Believer", "Ha Mim", "The Counsel", "The Embellishment", "The Evident Smoke", "The Kneeling", "The Sandhills", "Muhammad", "The Victory", "The Chambers", "Qaf", "The Scatterers", "The Mountain", "The Star", "The Moon", "The Beneficient", "The Great Event", "The Iron", "The Pleading One", "The Banishment", "The Examined One", "The Ranks", "Friday", "The Hypocrites", "Loss And Gain", "The Divorce", "The Prohibition", "The Kingdom", "The Pen", "The Sure Calamity", "The Ways Of Ascent", "Nuh", "The Jinn", "The Wrapped Up", "The Clothe Done", "The Resurrection", "The Man", "The Emissaries", "The Great Event", "Those Who Pull Out", "He Frowned", "The Covering Up", "The Cleaving Asund", "The Defrauders", "The Bursting Asund", "The Mansions Of The Stars", "The Night-Comer", "The Most High", "The Overwhelming", "The Daybreak", "The City", "The Sun", "The Night", "The Early Hours", "The Expansion", "The Fig", "The Clot", "The Majesty", "The Clear Evidence", "The Shaking", "The Assaulters", "The Terrible Calam", "The Multiplicatio", "Time", "The Slanderer", "The Elephant", "The Qureaish", "The Daily Necessar", "The Heavenly Fount", "The Unbelievers", "The Help", "The Flame", "The Unity", "The Dawn", "The Men"]
+      }
+
+
     def self.opsiyonlar opts
       options = {}
       parser = OptionParser.new do |o|
@@ -12984,7 +12990,7 @@ module Wahy
           if s =~ /[[:digit:]]/
             options[:scripture] = s.to_i - 1
           else
-            options[:scripture] = (SURELER[(options[:lang] || 'tur').to_sym.index(s.split(" ").map {|i| i = i.capitalize}.join(" "))
+            options[:scripture] = (SURELER[(options[:lang] || 'tur').to_sym]).index(s.split(" ").map {|i| i = i.capitalize}.join(" "))
           end
         end
         
@@ -13005,11 +13011,6 @@ module Wahy
   end
 
   args = ARGV
-
-  SURELER = {
-    :tur => ["Fatiha", "Bakara", "Ali İmran", "Nisa", "Maide", "Enam", "Araf", "Enfal", "Tevbe", "Yunus", "Hud", "Yusuf", "Rad", "İbrahim", "Hicr", "Nahl", "Isra", "Kehf", "Meryem", "Taha", "Enbiya", "Hac", "Muminun", "Nur", "Furkan", "Suara", "Neml", "Kasas", "Ankebut", "Rum", "Lukman", "Secde", "Ahzab", "Sebe", "Fatir", "Yasin", "Saffat", "Sad", "Zümer", "Mumin", "Fussilet", "Sura", "Zuhruf", "Duhan", "Casiye", "Ahkaf", "Muhammed", "Fetih", "Hucurat", "Kaf", "Zariyat", "Tur", "Necm", "Kamer", "Rahman", "Vakia", "Hadid", "Mücadele", "Hasr", "Mümtahine", "Saf", "Cuma", "Münafikun", "Tegabun", "Talak", "Tahrim", "Mülk", "Kalem", "Hakka", "Mearic", "Nuh", "Cin", "Müzzemmil", "Müddessir", "Kıyamet", "İnsan", "Murselat", "Nebe", "Naziat", "Abese", "Tekvir", "İnfitar", "Mutaffifin", "İnsikak", "Buruc", "Tarik", "Ala", "Gasiye", "Fecr", "Beled", "Şems", "Leyl", "Duha", "İnşirah", "Tin", "Alak", "Kadir", "Beyyine", "Zilzal", "Adiyat", "Karia", "Tekasür", "Asr", "Hümeze", "Fil", "Kureyş", "Maun", "Kevser", "Kafirun", "Nasr", "Leheb", "İhlas", "Felak", "Nas"],
-    :eng => ["The Opening", "The Cow", "The Family Of Imran", "Women", "The Food", "The Cattle", "The Elevated Place", "The Spoils Of War", "Repentance", "Yunus", "Hud", "Yusuf", "The Thunder", "Ibrahim", "The Rock", "The Bee", "The Israelites", "The Cave", "Marium", "Ta Ha", "The Prophets", "The Pilgrimage", "The Believers", "The Light", "The Criterion", "The Poets", "The Ant", "The Narrative", "The Spider", "The Romans", "Luqman", "The Adoration", "The Allies", "Saba", "The Originator", "Ya Seen", "The Rangers", "Suad", "The Companies", "The Believer", "Ha Mim", "The Counsel", "The Embellishment", "The Evident Smoke", "The Kneeling", "The Sandhills", "Muhammad", "The Victory", "The Chambers", "Qaf", "The Scatterers", "The Mountain", "The Star", "The Moon", "The Beneficient", "The Great Event", "The Iron", "The Pleading One", "The Banishment", "The Examined One", "The Ranks", "Friday", "The Hypocrites", "Loss And Gain", "The Divorce", "The Prohibition", "The Kingdom", "The Pen", "The Sure Calamity", "The Ways Of Ascent", "Nuh", "The Jinn", "The Wrapped Up", "The Clothe Done", "The Resurrection", "The Man", "The Emissaries", "The Great Event", "Those Who Pull Out", "He Frowned", "The Covering Up", "The Cleaving Asund", "The Defrauders", "The Bursting Asund", "The Mansions Of The Stars", "The Night-Comer", "The Most High", "The Overwhelming", "The Daybreak", "The City", "The Sun", "The Night", "The Early Hours", "The Expansion", "The Fig", "The Clot", "The Majesty", "The Clear Evidence", "The Shaking", "The Assaulters", "The Terrible Calam", "The Multiplicatio", "Time", "The Slanderer", "The Elephant", "The Qureaish", "The Daily Necessar", "The Heavenly Fount", "The Unbelievers", "The Help", "The Flame", "The Unity", "The Dawn", "The Men"]
-  }
 
   OPTIONS   = Opt_PARSER.opsiyonlar args
   LANG      = OPTIONS[:lang] || 'tur'

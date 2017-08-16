@@ -1,3 +1,3 @@
 module Wahy
-  VERSION = "1.2.2"
+  VERSION = "1.2.5"
 end
