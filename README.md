@@ -31,7 +31,7 @@ There is the argument's options:
 # -s => to pick scripture (also can use scripture's number) # between 1-114 # Default: 1
 # -a => to pick sign number (also can use all) # Default: all
 
-# User can call only wahy command then will see all sings of first scripture in Turkish.
+# User can call only wahy command then will see all sings of first scripture in TEngish.
 
 # The Cow Scripture and its all signs
 wahy -l 'eng' -s 'The Cow' # alias to: wahy -l 'eng' -s 'The Cow' -a 'all'
