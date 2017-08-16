@@ -12990,6 +12990,8 @@ module Wahy
         o.on("-sSCRIPTURE", "--scripture=SCRIPTURE", "Scripture name or number") do |s|
           if s =~ /[[:digit:]]/
             options[:scripture] = s.to_i - 1
+          elsif s == 'all'
+            options[:scripture] = s
           else
             SURELER.values.each do |v|
               options[:scripture] = v.index(s.split(" ").map {|i| i = i.capitalize}.join(" ")) if v.include? s
