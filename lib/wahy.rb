@@ -12992,7 +12992,7 @@ module Wahy
             options[:scripture] = s.to_i - 1
           else
             SURELER.values.each do |v|
-              options[:scripture] = s.split(" ").map {|i| i = i.capitalize}.join(" ") if v.include? s
+              options[:scripture] = v.index(s.split(" ").map {|i| i = i.capitalize}.join(" ")) if v.include? s
             end
           end
         end
