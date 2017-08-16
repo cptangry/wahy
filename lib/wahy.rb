@@ -6,7 +6,7 @@ require 'optparse'
 require 'colorize'
 
 module Wahy
-  ENG = '<?xml version="1.0" encoding="utf-8" ?>
+  ENGLISH = '<?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE HolyQuran [
 	<!ATTLIST HolyQuran TranslationID CDATA #REQUIRED>
 	<!ATTLIST HolyQuran Writer CDATA #REQUIRED>
@@ -12991,7 +12991,9 @@ module Wahy
           if s =~ /[[:digit:]]/
             options[:scripture] = s.to_i - 1
           else
-            options[:scripture] = (SURELER[(options[:lang] || 'tur').to_sym]).index(s.split(" ").map {|i| i = i.capitalize}.join(" "))
+            SURELER.values.each do |v|
+              options[:scripture] = s.split(" ").map {|i| i = i.capitalize}.join(" ") if v.include? s
+            end
           end
         end
 
@@ -13018,7 +13020,7 @@ module Wahy
   SCRIPTURE = OPTIONS[:scripture] || 0
   SIGN      = OPTIONS[:sign] || 'all'
 
-  Doc = Nokogiri::XML(LANG == 'tur' ? TUR : ENG) do |config|
+  Doc = Nokogiri::XML(LANG == 'tur' ? TUR : ENGLISH) do |config|
     config.strict.noblanks
   end
 
