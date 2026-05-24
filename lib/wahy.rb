@@ -108,7 +108,7 @@ module Wahy
 	elsif lang == 'eng'
 		doc = Nokogiri::XML(ENGLISH)
 	else
-		print 'Please, eelect a correct option ("tur" or "eng"): '
+		print 'Please, select a correct option ("tur" or "eng"): '
 		selection = gets.chomp
 		new_data selection
 	end

@@ -57,10 +57,9 @@ sign_one = signs[0] # or sign_one = signs.first # it's array
 # OR
 sing_two = Wahy.take_specific_sign signs, 1
 
-
 # Gem includes two XML data
-# English Quran Tranlation(eng.xml): Written by Yusuf Ali
-# Turkish Quran Tranlation(tur.xml): Written by Elmalılı Hamdi Yazır
+# English Quran Tranlation(/lib/data/config_en.xml): Written by Yusuf Ali
+# Turkish Quran Tranlation(/lib/data/config_tr.xml): Written by Elmalılı Hamdi Yazır
 # Special Thanks to: http://www.qurandatabase.org/Database.aspx
 ```
 
