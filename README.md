@@ -20,6 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
+![Ekran Görüntüsü](Screenshot_2017-08-17_16-23-15.png)
+
 ```shell
 # Just install gem and use wahy command
 # For help:
