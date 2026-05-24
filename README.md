@@ -20,8 +20,6 @@ Or install it yourself as:
 
 ## Usage
 
-![alt text](https://github.com/cptangry/wahy/blob/master/Screenshot_2017-08-17_16-23-15.png "Thats's example of how terminal command works")
-
 ```shell
 # Just install gem and use wahy command
 # For help:
