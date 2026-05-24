@@ -1,4 +1,4 @@
-'<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE HolyQuran [
 	<!ATTLIST HolyQuran TranslationID CDATA #REQUIRED>
 	<!ATTLIST HolyQuran Writer CDATA #REQUIRED>
@@ -6478,4 +6478,4 @@
 		<Verse VerseID="5"><![CDATA[(The same) who whispers into the hearts of Mankind,-]]></Verse>
 		<Verse VerseID="6"><![CDATA[Among Jinns and among men.]]></Verse>
 	</Chapter>
-</HolyQuran>'
+</HolyQuran>

@@ -5,7 +5,7 @@ require 'nokogiri'
 require 'optparse'
 require 'colorize'
 
-xml_data = Wahy::Parser.load_xml
+
 module Wahy
     class Parser
         def self.load_xml
@@ -24,6 +24,7 @@ module Wahy
         }
         end
     end
+  XML_DATA = Wahy::Parser.load_xml
   ENGLISH  = XML_DATA[:en]
   TUR      = XML_DATA[:tr]
 
