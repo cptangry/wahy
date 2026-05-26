@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "A CLI tool and library to query the Holy Quran in TR/ENG."
   spec.description   = "Query and read the Holy Quran chapters and verses in the terminal with colored output. Includes both English and Turkish support."
-  spec.homepage      = "https://github.com/username/wahy"
+  spec.homepage      = "https://github.com/cptangry/wahy"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 4.0.2"
   # Uncomment the line below to require MFA for gem pushes.
