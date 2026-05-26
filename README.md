@@ -65,7 +65,8 @@ wahy
 View a specific chapter in Turkish:
 
 ```bash
-wahy -l tur -s <chapter_number>  # If you know name of Chapter, you don't need to use -l --lang parameter. With -l (`tur` or `eng`)  always use -s <Chapter number>
+wahy -l tur -s <chapter_number>  # If you know name of Chapter, you don't need to use -l --lang parameter.
+With -l (`tur` or `eng`)  always use -s <Chapter number>
 ```
 
 View a specific verse:
