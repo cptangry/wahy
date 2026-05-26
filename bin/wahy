@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require 'wahy'
+
+# Trigger the CLI workflow
+Wahy::CLI.run
