@@ -1,43 +1,107 @@
 # Wahy
 
-TODO: Delete this and the text below, and describe your gem
+Wahy is a powerful Ruby-based tool designed to query, read, and display Quran chapters and verses directly from your terminal. It offers a clean, colorized CLI interface for quick lookup and a modular structure that allows you to use it as a library (API) in your own Ruby projects.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/wahy`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Features
+
+- **Dual Language Support:** Easily query and read verses in Turkish (`tur`) or English (`eng`).
+- **Flexible Queries:** Search chapters by their number (e.g., `2`) or their names (e.g., `"Bakara"` or `"The Cow"`).
+- **Verse Filtering:** Retrieve an entire chapter or a specific verse (e.g., `-a 5`) with ease.
+- **Colorized Terminal UI:** Optimized reading experience with automatic text centering and highlighted verse indicators.
+- **Modular Library:** Easily integrate the data parsing logic into other Ruby applications.
+
+## Prerequisites
+
+- Ruby 2.5 or higher
+- The project expects XML data files to be located in the `lib/wahy/data/` directory:
+    - `config_en.xml`
+    - `config_tr.xml`
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Add this line to your application's `Gemfile`:
 
-Install the gem and add to the application's Gemfile by executing:
-
-```bash
-bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```ruby
+gem 'wahy'
 ```
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+And then execute:
 
 ```bash
-gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+bundle install
 ```
 
-## Usage
+Or install it yourself as:
 
-TODO: Write usage instructions here
+```bash
+gem install wahy
+```
 
-## Development
+Or install it directly via terminal:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```bash
+gem install wahy
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+## CLI Usage
 
-## Contributing
+You can use the wahy command directly in your terminal. By default, it displays the 1st chapter in English.
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/wahy. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/wahy/blob/master/CODE_OF_CONDUCT.md).
+| Option | Long Option | Description | Default |
+| :--- | :--- | :--- | :--- |
+| `-l` | `--lang` | Language selection (`tur` or `eng`) | `eng` |
+| `-s` | `--scripture` | Chapter name or number (1-114) | `1` |
+| `-a` | `--ayah` | Specific verse number or 'all' | `all` |
+| `-h` | `--help` | Show help menu | - |
 
+Examples
+
+View the entire chapter in English:
+
+```bash
+wahy
+```
+
+View a specific chapter in Turkish:
+
+```bash
+wahy -l tur -s <chapter_name_or_number>
+```
+
+View a specific verse:
+
+```bash
+wahy -l tur -s <chapter_name_or_number> -a <verse_number>
+```
+
+Save output to a file:
+
+```bash
+wahy -l tur -s <chapter_name_or_number> -a <verse_number> > output.txt
+```
+
+## Library (API) Usage
+
+You can require wahy in your own Ruby projects to parse and manipulate Quranic data programmatically:
+
+```ruby
+require 'wahy'
+
+# 1. Load data for a specific language
+data = Wahy.new_data 'tur' 
+
+# 2. Extract chapters
+quran = Wahy.chapters_data data
+
+# 3. Get a specific chapter node
+the_opening = Wahy.scripture_data quran, 'the opening' 
+
+# 4. Extract verses as an array of strings
+signs = Wahy.sign_data the_opening 
+
+# 5. Get a specific sign
+sign_two = Wahy.take_specific_sign signs, 1
+```
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Wahy project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/wahy/blob/master/CODE_OF_CONDUCT.md).
+This project is licensed under the MIT License.
