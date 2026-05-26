@@ -49,7 +49,7 @@ You can use the wahy command directly in your terminal. By default, it displays 
 
 | Option | Long Option | Description | Default |
 | :--- | :--- | :--- | :--- |
-| `-l` | `--lang` | Language selection (`tur` or `eng`) | `eng` |
+| `-l` | `--lang` | Language selection (`tur` or `eng`) | `eng` | # If you know name of Chapter, you don't need to use -l --lang parameter. With -l use -s <Chapter number>
 | `-s` | `--scripture` | Chapter name or number (1-114) | `1` |
 | `-a` | `--ayah` | Specific verse number or 'all' | `all` |
 | `-h` | `--help` | Show help menu | - |
