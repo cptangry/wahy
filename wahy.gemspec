@@ -28,9 +28,9 @@ Gem::Specification.new do |spec|
         f.start_with?(*%w[bin/ Gemfile .gitignore test/ .github/ .rubocop.yml])
     end
   end
-  spec.bindir = "exe"
+  spec.bindir = "bin"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.require_paths = ["bin"]
 
   spec.add_development_dependency "bundler", "~> 4.0.12"
   spec.add_development_dependency 'rake', '~> 13.4'
