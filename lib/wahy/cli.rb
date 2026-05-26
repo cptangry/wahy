@@ -1,72 +1,89 @@
 require 'optparse'
-require 'io/console'
+require 'colorize'
 
 module Wahy
-    # CLI class that handles command-line interfaces and arguments
-    class CLI
-        def self.run
-            options = { lang: 'eng', scripture: '1', ayah: 'all' }
+  class CLI
+    def self.start(args)
+      # Set default options
+      options = { lang: 'eng', scripture: '1', ayah: 'all' }
 
-            parser = OptionParser.new do |opts|
-                opts.banner = "Usage: wahy [options]"
+      opt_parser = OptionParser.new do |opts|
+        opts.banner = "Usage: wahy [options]"
 
-                opts.on("-l", "--lang LANG", "Select language for reading (tur or eng)") do |v|
-                    options[:lang] = v
-                end
-
-                opts.on("-s", "--scripture SCRIPT", "Chapter name or chapter number (1-114)") do |v|
-                    options[:scripture] = v
-                end
-
-                opts.on("-a", "--ayah AYAH", "Verse number to fetch or 'all' for the whole chapter") do |v|
-                    options[:ayah] = v
-                end
-
-                opts.on("-h", "--help", "Prints this help menu") do
-                    puts opts
-                    exit
-                end
-            end
-
-            begin
-                parser.parse!
-            rescue OptionParser::InvalidOption => e
-                puts "\e[31m#{e.message}\e[0m"
-                puts parser
-                exit 1
-            end
-
-            display(options)
+        opts.on("-l", "--lang LANGUAGE", "Language selection ('tur' or 'eng') - Default: eng") do |l|
+          options[:lang] = l
         end
 
-        def self.display(options)
-            parser = Wahy::Parser.new(options[:lang])
-            chapter = parser.chapter_info(options[:scripture])
-
-            if chapter.nil?
-                puts "\e[31mChapter not found: #{options[:scripture]}\e[0m"
-                exit 1
-            end
-
-            verses = parser.verses_data(options[:scripture], options[:ayah])
-
-            if verses.empty?
-                puts "\e[31mVerse not found: #{options[:ayah]}\e[0m"
-                exit 1
-            end
-
-            # Get terminal width to dynamically center the header title
-            terminal_width = IO.console ? IO.console.winsize[1] : 80
-            title = " Chapter: #{chapter[:name]} (No: #{chapter[:id]}) "
-
-            puts "\n"
-            puts "\e[1;36m#{title.center(terminal_width, '=')}\e[0m\n\n"
-
-            # Print formatting
-            verses.each do |verse|
-                puts "\e[32m[#{verse[:id]}]\e[0m #{verse[:text]}"
-            end
-            puts "\n"
+        opts.on("-s", "--scripture SCRIPTURE", "Chapter name or ID (1-114) - Default: 1") do |s|
+          options[:scripture] = s
         end
+
+        opts.on("-a", "--ayah AYAH", "Sign/Verse number or 'all' - Default: all") do |a|
+          options[:ayah] = a
+        end
+
+        opts.on("-h", "--help", "Prints this help") do
+          puts opts
+          exit
+        end
+      end
+
+      opt_parser.parse!(args)
+
+      begin
+        # Fetch Data
+        doc = Wahy.new_data(options[:lang])
+        chapters = Wahy.chapters_data(doc)
+        chapter = Wahy.scripture_data(chapters, options[:scripture])
+
+        if chapter.nil?
+          puts "Error: Scripture '#{options[:scripture]}' not found.".colorize(:red)
+          exit 1
+        end
+
+        # Header preparation
+        chapter_id = chapter['ChapterID']
+        chapter_name = chapter['ChapterName']
+        title = "#{chapter_id}. #{chapter_name}"
+
+        # Get terminal width for centering (fallback to 80 if it fails)
+        term_width = `tput cols`.to_i rescue 80
+        term_width = 80 if term_width == 0
+
+        # Print centered and colored header
+        puts "\n"
+        puts title.center(term_width).colorize(:green).bold
+        puts ("=" * title.length).center(term_width).colorize(:green)
+        puts "\n"
+
+        signs = Wahy.sign_data(chapter)
+
+        # Print verses
+        if options[:ayah].to_s.downcase == 'all'
+          signs.each { |sign| print_sign(sign) }
+        else
+          sign = Wahy.take_specific_sign(signs, options[:ayah])
+          if sign.nil?
+            puts "Error: Ayah '#{options[:ayah]}' not found in this scripture.".colorize(:red)
+          else
+            print_sign(sign)
+          end
+        end
+        puts "\n"
+      rescue => e
+        puts "An error occurred: #{e.message}".colorize(:red)
+        exit 1
+      end
     end
+
+    private
+
+    # Helper method to print a single verse
+    def self.print_sign(sign)
+      verse_id = sign['VerseID']
+      # CDATA text parsing and whitespace stripping
+      text = sign.text.strip
+      puts "[#{verse_id}] ".colorize(:cyan).bold + text
+    end
+  end
 end
