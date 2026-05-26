@@ -1,5 +1,10 @@
 #!/usr/bin/env ruby
 
-require "wahy"
+# Bu satır, projenin 'lib' klasörünü LOAD_PATH'e ekler
+# böylece gem'i yerel olarak geliştirirken kodlarınız birbirini görür.
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 
+require 'wahy'
+
+# CLI sınıfınızı başlatın
 Wahy::CLI.start(ARGV)

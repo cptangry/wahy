@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["caglar.gokhan@gmail.com"]
 
   spec.summary       = "A CLI tool and library to query the Holy Quran in TR/ENG."
-  spec.description   = "Query chapters and verses by number or name with colored terminal outputs."
+  spec.description   = "Query and read the Holy Quran chapters and verses in the terminal with colored output. Includes both English and Turkish support."
   spec.homepage      = "https://github.com/username/wahy"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 4.0.2"
@@ -22,21 +22,19 @@ Gem::Specification.new do |spec|
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   gemspec = File.basename(__FILE__)
-  spec.files = IO.popen(%w[git ls-files -z], chdir: __dir__, err: IO::NULL) do |ls|
-    ls.readlines("\x0", chomp: true).reject do |f|
-      (f == gemspec) ||
-        f.start_with?(*%w[bin/ Gemfile .gitignore test/ .github/ .rubocop.yml])
+  spec.files = Dir.chdir(__dir__) do
+    `git ls-files -z`.split("\x0").reject do |f|
+      (File.expand_path(f) == __FILE__) ||
+        f.start_with?(*%w[bin/ test/ spec/ features/ .git .circleci appveyor Gemfile])
     end
   end
   spec.bindir = "bin"
-  spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
-  spec.require_paths = ["bin"]
+  spec.executables = ["wahy"]
+  spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 4.0.12"
   spec.add_development_dependency 'rake', '~> 13.4'
   spec.add_development_dependency "minitest", "~> 5.0"
-  spec.add_development_dependency 'nokogiri', '~> 1.8'
-  spec.add_development_dependency 'colorize', '~> 0.8.1'
   spec.add_runtime_dependency 'nokogiri', '~> 1.8'
   spec.add_runtime_dependency 'colorize', '~> 0.8.1'
 
