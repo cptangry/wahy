@@ -72,13 +72,15 @@ wahy -l tur -s <chapter_number>  # If you know name of Chapter, you don't need t
 View a specific verse:
 
 ```bash
-wahy -l tur -s <chapter_name_or_number> -a <verse_number>
+wahy -l tur -s <chapter_number> -a <verse_number>
+
+wahy -s <chapter_mame_or_number> -a <verse_number>
 ```
 
 Save output to a file:
 
 ```bash
-wahy -l tur -s <chapter_name_or_number> -a <verse_number> > output.txt
+wahy -s <chapter_name_or_number> -a <verse_number> > output.txt
 ```
 
 ## Library (API) Usage
