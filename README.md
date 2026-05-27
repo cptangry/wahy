@@ -52,6 +52,7 @@ You can use the wahy command directly in your terminal. By default, it displays 
 | `-l` | `--lang` | Language selection (`tur` or `eng`) | `eng` |
 | `-s` | `--scripture` | Chapter name or number (1-114) | `1` |
 | `-a` | `--ayah` | Specific verse number or 'all' | `all` |
+| - | `--list-chapters` | List all chapters in a clean table format | - |
 | `-h` | `--help` | Show help menu | - |
 
 Examples
@@ -77,7 +78,40 @@ wahy -l tur -s <chapter_number> -a <verse_number>
 wahy -s <chapter_mame_or_number> -a <verse_number>
 ```
 
-Save output to a file:
+List all chapters in Turkish:
+
+```bash
+# List all chapters in English (default)
+wahy --list-chapters
+
+# List all chapters in Turkish
+wahy --list-chapters -l tur
+```
+## Listing Chapters (`--list-chapters`)
+
+The `--list-chapters` feature acts as an interactive built-in index for the Quranic data files. It provides users with a clean, well-aligned terminal table showing the exact `ID` and `Chapter Name` mappings for the selected language.
+
+### Key Benefits:
+1. **Dynamic Language Switch:** Specifying `-l 'tur'` or `-l 'eng'` alongside `--list-chapters` automatically switches the content of the index table to that specific translation file.
+2. **Short-Circuit Execution:** When this flag is triggered, the program instantly renders the table and exits securely, avoiding any unnecessary XML traversing or verse filtering overhead.
+3. **Formatted UI Output:** Utilizing explicit string formatting rules ensures that all tabular column lines down the terminal remain perfectly aligned regardless of varying chapter name lengths.
+
+### Example Output:
+```text
+==================================================
+            QURAN CHAPTERS (TURKISH)             
+==================================================
+ID         | CHAPTER NAME                       
+--------------------------------------------------
+1          | Fatiha                             
+2          | Bakara                             
+3          | Âl-i İmrân                         
+...
+114        | Nas                                
+==================================================
+```
+
+## Save output to a file:
 
 ```bash
 wahy -s <chapter_name_or_number> -a <verse_number> > output.txt
