@@ -138,3 +138,10 @@ sign_two = Wahy.take_specific_sign signs, 1
 ## License
 
 This project is licensed under the MIT License.
+
+```text
+**Gem includes two XML data**
+English Quran Tranlation(/lib/data/config_en.xml): Written by Yusuf Ali
+Turkish Quran Tranlation(/lib/data/config_tr.xml): Written by Elmalılı Hamdi Yazır
+Special Thanks to: http://www.qurandatabase.org/Database.aspx
+```
