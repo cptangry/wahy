@@ -53,6 +53,7 @@ You can use the wahy command directly in your terminal. By default, it displays 
 | `-s` | `--scripture` | Chapter name or number (1-114) | `1` |
 | `-a` | `--ayah` | Specific verse number or 'all' | `all` |
 | - | `--list-chapters` | List all chapters in a clean table format | - |
+| `-v` | `--version` | Show version | - |
 | `-h` | `--help` | Show help menu | - |
 
 Examples
