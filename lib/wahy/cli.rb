@@ -4,6 +4,8 @@ require 'colorize'
 
 module Wahy
   class CLI
+
+
     def self.start(args)
       options = {
         lang: 'eng',
@@ -30,6 +32,12 @@ module Wahy
         # Yeni: Sadece sureleri listelemek için argüman
         opts.on("--list-chapters", "List all chapters in a table format for the selected language") do
           options[:list_chapters] = true
+        end
+
+        # Yeni: Versiyon numarasını gösterir
+        opts.on("-v", "--version", "Prints the current version") do
+          puts "wahy version #{Wahy::VERSION}"
+          exit
         end
 
         opts.on("-h", "--help", "Prints this help menu") do
