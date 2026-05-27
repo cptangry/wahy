@@ -12,7 +12,7 @@ Wahy is a powerful Ruby-based tool designed to query, read, and display Quran ch
 
 ## Prerequisites
 
-- Ruby 2.5 or higher
+- Ruby 4.0.2 or higher
 - The project expects XML data files to be located in the `lib/wahy/data/` directory:
     - `config_en.xml`
     - `config_tr.xml`
