@@ -91,11 +91,6 @@ wahy --list-chapters -l tur
 
 The `--list-chapters` feature acts as an interactive built-in index for the Quranic data files. It provides users with a clean, well-aligned terminal table showing the exact `ID` and `Chapter Name` mappings for the selected language.
 
-### Key Benefits:
-1. **Dynamic Language Switch:** Specifying `-l 'tur'` or `-l 'eng'` alongside `--list-chapters` automatically switches the content of the index table to that specific translation file.
-2. **Short-Circuit Execution:** When this flag is triggered, the program instantly renders the table and exits securely, avoiding any unnecessary XML traversing or verse filtering overhead.
-3. **Formatted UI Output:** Utilizing explicit string formatting rules ensures that all tabular column lines down the terminal remain perfectly aligned regardless of varying chapter name lengths.
-
 ### Example Output:
 ```text
 ==================================================
