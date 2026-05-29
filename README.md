@@ -178,7 +178,7 @@ ayah_count = Wahy.ayah_count(999)      # → 0 (unknown chapter)
 This project is licensed under the MIT License.
 
 ```text
-**Gem includes two XML data**
+**Gem includes two XML data files**
 English Quran Tranlation(/lib/data/config_en.xml): Written by Yusuf Ali
 Turkish Quran Tranlation(/lib/data/config_tr.xml): Written by Elmalılı Hamdi Yazır
 ```
