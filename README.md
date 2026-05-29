@@ -117,10 +117,6 @@ Error: Ayah #10 not found in Chapter 1 (The Opening).
 This chapter has 7 ayah(s). Valid range: 1–7.
 ```
 
-## Listing Chapters (`--list-chapters`)
-
-The `--list-chapters` feature acts as an interactive built-in index for the Quranic data files. It provides users with a clean, well-aligned terminal table showing the exact `ID` and `Chapter Name` mappings for the selected language.
-
 ### Example Output:
 ```text
 ==================================================
