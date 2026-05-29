@@ -5,13 +5,12 @@ require 'colorize'
 module Wahy
   class CLI
 
-
     def self.start(args)
       options = {
         lang: 'eng',
         scripture: '1',
         ayah: 'all',
-        list_chapters: false # Yeni: Listeleme seçeneği varsayılan olarak kapalı
+        list_chapters: false
       }
 
       opt_parser = OptionParser.new do |opts|
@@ -29,12 +28,10 @@ module Wahy
           options[:ayah] = a
         end
 
-        # Yeni: Sadece sureleri listelemek için argüman
         opts.on("--list-chapters", "List all chapters in a table format for the selected language") do
           options[:list_chapters] = true
         end
 
-        # Yeni: Versiyon numarasını gösterir
         opts.on("-v", "--version", "Prints the current version") do
           puts "wahy version #{Wahy::VERSION}"
           exit
@@ -67,34 +64,45 @@ module Wahy
 
       quran = Wahy.chapters_data(data)
 
-      # Eğer list-chapters bayrağı tetiklendiyse, tabloyu çiz ve programı sonlandır
       if options[:list_chapters]
         display_chapter_list(quran, options[:lang])
         exit
       end
 
-      # Listeleme istenmediyse normal okuma akışına devam et
+      scripture_input = options[:scripture].to_s
+
+      # Sayısal giriş için 1-114 aralığı kontrolü
+      if scripture_input =~ /^\d+$/
+        chapter_num = scripture_input.to_i
+        if chapter_num < 1 || chapter_num > 114
+          puts "Error: Chapter number must be between 1 and 114. Got #{chapter_num}.".red
+          exit 1
+        end
+      end
+
       chapter_node = Wahy.scripture_data(quran, options[:scripture])
 
       unless chapter_node
-        puts "Error: Scripture '#{options[:scripture]}' could not be found.".red
+        puts "Error: Scripture '#{options[:scripture']}' could not be found.".red
         exit 1
       end
 
       chapter_id = chapter_node['ChapterID']
       chapter_name = chapter_node['ChapterName']
       verses = chapter_node.xpath('Verse')
+      total_verses = verses.length
 
       selected_verses = []
       if options[:ayah].to_s.downcase == 'all'
         selected_verses = verses
       else
-        target_ayah = options[:ayah].to_s
-        match = verses.find { |v| v['VerseID'] == target_ayah }
+        target_ayah = options[:ayah].to_i
+        match = verses.find { |v| v['VerseID'] == target_ayah.to_s }
         if match
           selected_verses = [match]
         else
           puts "Error: Ayah ##{target_ayah} not found in Chapter #{chapter_id} (#{chapter_name}).".red
+          puts "This chapter has #{total_verses} ayah(s). Valid range: 1–#{total_verses}.".red
           exit 1
         end
       end
@@ -117,7 +125,6 @@ module Wahy
       puts "=" * terminal_width
     end
 
-    # Yeni: Sureleri tablo halinde terminale basan yardımcı metod
     def self.display_chapter_list(chapters, lang)
       lang_display = lang.to_s.downcase.start_with?('t') ? "TURKISH" : "ENGLISH"
 
@@ -125,14 +132,12 @@ module Wahy
       puts " QURAN CHAPTERS (#{lang_display}) ".center(50).cyan.bold
       puts "=" * 50
 
-      # Sütun başlıkları: Sola dayalı 10 karakter ID, sola dayalı 35 karakter İsim
       puts sprintf("%-10s | %-35s", "ID", "CHAPTER NAME").yellow.bold
       puts "-" * 50
 
       chapters.each do |c|
         id = c['ChapterID']
         name = c['ChapterName']
-        # Sütun verilerini hizalayarak yazdır
         puts sprintf("%-10s | %-35s", id, name)
       end
 

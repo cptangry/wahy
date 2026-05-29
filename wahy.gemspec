@@ -8,8 +8,14 @@ Gem::Specification.new do |spec|
   spec.authors = ["cptangry"]
   spec.email = ["caglar.gokhan@gmail.com"]
 
-  spec.summary       = "A CLI tool and library to query the Holy Quran in TR/ENG."
-  spec.description   = "Query and read the Holy Quran chapters and verses in the terminal with colored output. Includes both English and Turkish support."
+  spec.summary       = "Query the Quran in your terminal with colorized output and a Ruby library API."
+  spec.description   = <<~DESC
+    Wahy is a CLI tool and Ruby library for querying the Holy Quran's 114 chapters
+    and verses. Browse chapters by name or number, filter specific ayahs, and
+    display results with colorized terminal output. Supports English (Yusuf Ali)
+    and Turkish (Elmalılı Hamdi Yazır) translations. Also usable as a library to
+    programmatically access chapter names, verse counts, and parsed Quranic data.
+  DESC
   spec.homepage      = "https://github.com/cptangry/wahy"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 4.0.2"

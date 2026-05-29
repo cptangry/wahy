@@ -1,4 +1,15 @@
 module Wahy
   VERSION: String
+
   # See the writing guide of rbs: https://github.com/ruby/rbs#guides
+
+  new_data(lang: String) Nokogiri::XML::Document
+  chapters_data(doc: Nokogiri::XML::Document) Nokogiri::XML::NodeSet
+  scripture_data(chapters: Nokogiri::XML::NodeSet, identifier: String) Nokogiri::XML::Node?
+  sign_data(chapter: Nokogiri::XML::Node) Array[Nokogiri::XML::Node]
+  take_specific_sign(signs: Array[Nokogiri::XML::Node], verse_number: String) Nokogiri::XML::Node?
+  chapter_names(doc: Nokogiri::XML::Document) Array[String]
+  en_chapters() Array[String]
+  tur_chapters() Array[String]
+  ayah_count(identifier: String) Integer
 end

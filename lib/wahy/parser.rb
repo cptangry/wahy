@@ -52,5 +52,40 @@ module Wahy
     def take_specific_sign(signs, verse_number)
       signs.find { |verse| verse["VerseID"] == verse_number.to_s }
     end
+
+    # Returns an array of chapter names from a parsed document
+    # @param doc [Nokogiri::XML::Document]
+    def chapter_names(doc)
+      doc.xpath("//Chapter").map { |c| c["ChapterName"] }
+    end
+
+    # Returns the number of ayahs (verses) in a chapter
+    # @param identifier [String, Integer] Chapter ID or name
+    # @return [Integer]
+    def ayah_count(identifier)
+      doc = new_data("eng")
+      chapters = doc.xpath("//Chapter")
+      chapter = if identifier.to_s =~ /^\d+$/
+                  chapters.find { |c| c["ChapterID"] == identifier.to_s }
+                else
+                  chapters.find { |c| c["ChapterName"].downcase == identifier.downcase }
+                end
+      return 0 unless chapter
+      chapter.xpath("Verse").count
+    end
+
+    # Returns an array of English chapter names
+    # @return [Array<String>]
+    def en_chapters
+      doc = new_data("eng")
+      chapter_names(doc)
+    end
+
+    # Returns an array of Turkish chapter names
+    # @return [Array<String>]
+    def tur_chapters
+      doc = new_data("tur")
+      chapter_names(doc)
+    end
   end
 end
