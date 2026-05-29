@@ -181,5 +181,4 @@ This project is licensed under the MIT License.
 **Gem includes two XML data**
 English Quran Tranlation(/lib/data/config_en.xml): Written by Yusuf Ali
 Turkish Quran Tranlation(/lib/data/config_tr.xml): Written by Elmalılı Hamdi Yazır
-Special Thanks to: http://www.qurandatabase.org/Database.aspx
 ```
