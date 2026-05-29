@@ -71,7 +71,7 @@ module Wahy
 
       scripture_input = options[:scripture].to_s
 
-      # Sayısal giriş için 1-114 aralığı kontrolü
+      # Check chapter number range for numeric input
       if scripture_input =~ /^\d+$/
         chapter_num = scripture_input.to_i
         if chapter_num < 1 || chapter_num > 114
@@ -80,10 +80,11 @@ module Wahy
         end
       end
 
-      chapter_node = Wahy.scripture_data(quran, options[:scripture])
+      scripture_id = options[:scripture]
+      chapter_node = Wahy.scripture_data(quran, scripture_id)
 
       unless chapter_node
-        puts "Error: Scripture '#{options[:scripture']}' could not be found.".red
+        puts "Error: Scripture '#{options[:scripture]}' could not be found.".red
         exit 1
       end
 
@@ -102,7 +103,7 @@ module Wahy
           selected_verses = [match]
         else
           puts "Error: Ayah ##{target_ayah} not found in Chapter #{chapter_id} (#{chapter_name}).".red
-          puts "This chapter has #{total_verses} ayah(s). Valid range: 1–#{total_verses}.".red
+          puts "This chapter has #{total_verses} ayah(s). Valid range: 1-#{total_verses}.".red
           exit 1
         end
       end
